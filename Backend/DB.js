@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { string } = require("zod");
 //suppose to be in .env
 mongoose.connect(
-  "mongodb+srv://vidit9151:ieYRyeTDYGe0E7xt@cluster0.i3etzei.mongodb.net/todos"
+  "mongodb+srv://vidit9151:@cluster0.i3etzei.mongodb.net/todos"
 );
 const todoSchema = mongoose.Schema({
   title: String,
