@@ -15,6 +15,7 @@ app.post("/todo", async (req, res) => {
   await todo.create({
     title: createPayload.title,
     description: createPayload.description,
+    completed: false,
   });
   res.json({ msg: "Todo Created" });
 });
@@ -24,12 +25,14 @@ app.get("/todos", async (req, res) => {
   res.json({ todos });
 });
 
-app.put("/completed", (req, res) => {
+app.put("/completed", async (req, res) => {
   const updatePayload = req.body;
   const parsePayload = updatePayload.safeParse(updatePayload);
   if (!parsePayload.success) {
     res.status(411).json({ msg: "you send the wrong inputs" });
   }
+  await todo.update({ _id: req.body.id }, { completed: true });
+  res.json({ msg: "todo marked as completed" });
 });
 
 app.listen(3000, () => {
