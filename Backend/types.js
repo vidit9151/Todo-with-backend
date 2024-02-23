@@ -1,4 +1,4 @@
-const zod = require("zodod");
+const zod = require("zod");
 //expected inputs object{string,string}
 
 const createTodo = zod.object({
