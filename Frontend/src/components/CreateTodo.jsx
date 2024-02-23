@@ -1,27 +1,33 @@
 const CreateTodo = () => {
   return (
-    <section>
-      <label htmlFor="title">
-        <h3 style={{ display: "inline-block" }}>Title:</h3>
-      </label>
-      <input
-        style={{ height: "1.5rem", borderRadius: "10px" }}
-        type="text"
-        placeholder="title"
-        id="title"
-      />{" "}
-      <br />
-      <label htmlFor="description">
-        <h3 style={{ display: "inline-block" }}>Description:</h3>
-      </label>
-      <input
-        style={{ height: "1.5rem", borderRadius: "10px" }}
-        type="text"
-        placeholder="description"
-        id="description"
-      />
-      <br />
-      <button type="button">Add a todo</button>
+    <section style={{ margin: "5rem 5rem 0rem 5rem" }}>
+      <fieldset>
+        <legend>
+          <h4 style={{ color: "#ddede1" }}>Title & Description</h4>
+        </legend>
+        <input
+          style={{ height: "1.5rem", borderRadius: "10px" }}
+          type="text"
+          placeholder="                   title"
+          id="title"
+        />
+        <br />
+        <br />
+        <input
+          style={{ height: "1.5rem", borderRadius: "10px" }}
+          type="text"
+          placeholder="              description"
+          id="description"
+        />
+        <br />
+        <br />
+        <button
+          style={{ width: "11rem", color: "#ddede1", fontSize: ".8rem" }}
+          type="button"
+        >
+          Add todo
+        </button>
+      </fieldset>
     </section>
   );
 };
