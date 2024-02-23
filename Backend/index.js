@@ -1,7 +1,9 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
+const cors = require("cors");
 const { todo } = require("./DB");
 const app = express();
+app.use(cors());
 app.use(express.json());
 //zod obj after safe parse {success:true,data} {success:false ,err}
 app.post("/todo", async (req, res) => {
