@@ -13,7 +13,9 @@ app.post("/todo", (req, res) => {
   }
   //put in mongo db
 });
+
 app.get("/todos", (req, res) => {});
+
 app.put("/completed", (req, res) => {
   const updatePayload = req.body;
   const parsePayload = updatePayload.safeParse(updatePayload);
