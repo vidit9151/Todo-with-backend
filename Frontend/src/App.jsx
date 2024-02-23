@@ -1,10 +1,10 @@
-import "./App.css";
+import CreateTodo from "./components/CreateTodo";
 
 function App() {
   return (
-    <>
-      <div>Hi there</div>
-    </>
+    <div>
+      <CreateTodo />
+    </div>
   );
 }
 
