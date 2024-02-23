@@ -1,10 +1,10 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
-
+const { todo } = require("./DB");
 const app = express();
 app.use(express.json());
 //zod obj after safe parse {success:true,data} {success:false ,err}
-app.post("/todo", (req, res) => {
+app.post("/todo", async (req, res) => {
   const createPayload = req.body;
   const parsePayload = createTodo.safeParse(createPayload);
   if (!parsePayload.success) {
@@ -12,6 +12,11 @@ app.post("/todo", (req, res) => {
     return;
   }
   //put in mongo db
+  await todo.create({
+    title: createPayload.title,
+    description: createPayload.description,
+  });
+  res.json({ msg: "Todo Created" });
 });
 
 app.get("/todos", (req, res) => {});
