@@ -19,7 +19,10 @@ app.post("/todo", async (req, res) => {
   res.json({ msg: "Todo Created" });
 });
 
-app.get("/todos", (req, res) => {});
+app.get("/todos", async (req, res) => {
+  const todos = await todo.find({}); //should give all the todos in the collection
+  res.json({ todos });
+});
 
 app.put("/completed", (req, res) => {
   const updatePayload = req.body;
